@@ -16,7 +16,7 @@ class KPTController extends Controller
      */
     public function index()
     {
-      $kpts = KPT::all()->take(5);
+      $kpts = KPT::all();
       return $kpts;
     }
 
