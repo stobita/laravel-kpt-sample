@@ -1,4 +1,5 @@
 import VueRouter from "vue-router";
+import store from "./store";
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -17,16 +18,20 @@ Vue.use(VueRouter);
  */
 
 Vue.component(
-    "example-component",
-    require("./components/ExampleComponent.vue")
+  "example-component",
+  require("./components/ExampleComponent.vue")
 );
 
+http.defaults.headers.common["X-CSRF-TOKEN"] = window.token;
+
 const router = new VueRouter({
-    mode: "history",
-    routes: [{ path: "/", component: require("./components/KPT/Index.vue") }]
+  mode: "history",
+  routes: [{ path: "/", component: require("./views/KPT") }]
 });
 
 const app = new Vue({
-    router,
-    el: "#app"
+  router,
+  store,
+  http,
+  el: "#app"
 });
