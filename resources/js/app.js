@@ -1,6 +1,7 @@
 import VueRouter from "vue-router";
 import store from "./store";
 import http from "./http";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -8,6 +9,7 @@ import http from "./http";
  */
 
 require("./bootstrap");
+require("./icon");
 
 window.Vue = require("vue");
 Vue.use(VueRouter);
@@ -22,6 +24,7 @@ Vue.component(
   "example-component",
   require("./components/ExampleComponent.vue")
 );
+Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 http.defaults.headers.common["X-CSRF-TOKEN"] = window.token;
 store.$http = http;

@@ -28,11 +28,11 @@ class KPTController extends Controller
      */
     public function store(Request $request)
     {
-      Log::debug($request);
       $kpt = new KPT;
       $kpt->content = $request->content;
       $kpt->user_id = 0;
       $kpt->status = (int)$request->status;
+      $kpt->order = (int)$request->order;
       $kpt->save();
       return response($kpt);
     }

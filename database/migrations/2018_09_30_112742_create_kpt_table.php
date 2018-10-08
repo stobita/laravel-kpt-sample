@@ -18,6 +18,7 @@ class CreateKptTable extends Migration
             $table->integer('user_id')->references('id')->on('users')->unsigned()->index();
             $table->text('content');
             $table->integer('status');
+            $table->integer('order');
             $table->timestamps();
         });
     }
